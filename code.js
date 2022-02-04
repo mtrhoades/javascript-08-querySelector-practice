@@ -4,13 +4,7 @@ const credit = document.querySelector("#credit");
 let matthewRhoades = "Peter Parker";
 credit.textContent = `Created by ${matthewRhoades}`;
 
-// COMPLETE THE HTML
-// 1. Append watermelon, grapes, and strawberries to the menu-container
-// watermelon is done as an example
-
-// 1b. Create divs and append watermelon to the page
-// *** type your code here ***
-
+// function for appending all fruit divs with buttons.
 const menuContainer = document.querySelector(".menu-container");
 
 function addHTML(fruit) {
@@ -36,27 +30,29 @@ addHTML("strawberry");
 addHTML("grapes");
 
 
-// let watermelonDiv = document.createElement("div");
-// watermelonDiv.innerHTML = `<div class="menu">
-// <h3>Watermelon</h3>
-// <img class ='fruit' src="assets/images/watermelon.jpeg" alt="watermelon">
-// <div class="button-container">
-//     <button id="minus-watermelon">-</button>
-//     <button id="add-watermelon">+</button>
-// </div>
-// </div>`;
+/* 
 
-// menuContainer.appendChild(watermelonDiv);
+let watermelonDiv = document.createElement("div");
+watermelonDiv.innerHTML = `<div class="menu">
+<h3>Watermelon</h3>
+<img class ='fruit' src="assets/images/watermelon.jpeg" alt="watermelon">
+<div class="button-container">
+     <button id="minus-watermelon">-</button>
+     <button id="add-watermelon">+</button>
+</div>
+</div>`;
 
-// ^ turned into above function for all watermelon, grapes, straberries divs.
+menuContainer.appendChild(watermelonDiv);
+
+^ turned into above function for all fruit divs and deleted html code for fruit divs.
+
+*/
 
 // EDIT THE CSS
-// Update Fruit Images with Javascript
-
-// 2a. create a new variable named fruitImages and set it equal to a document.querySelectorAll to select all images with a class of 'fruit'
-// *** type your code here ***
+// Update Fruit Images width and height with Javascript
 
 let fruitImages = document.querySelectorAll('.fruit');
+
 
 // 2b. Use a For Loop or forEach higher order function to change each fruit's width to 20vw & height to 20vw  // hint: style.width = "20vw"
 // *** type your code here ***
@@ -71,7 +67,7 @@ let fruitImages = document.querySelectorAll('.fruit');
 // or with .forEach:
 
 fruitImages.forEach((fruit) => {
-  fruit.style.width = "20vw";
+  fruit.style.width = "25vw";
   fruit.style.height = "20vh";
 });
 
@@ -83,12 +79,13 @@ let bananas = 0;
 let oranges = 0;
 let watermelon = 0;
 let grapes = 0;
-let strawberries = 0;
+let strawberry = 0;
 let total = 0;
 
 // Selectors
 // Selectors for each fruit's - and + button
 // plus button
+
 const applesPlusBtn = document.querySelector("#add-apples");
 const bananasPlusBtn = document.querySelector("#add-bananas");
 const orangesPlusBtn = document.querySelector("#add-oranges");
@@ -114,18 +111,21 @@ const watermelonQuantityDisplay = document.querySelector("#qty-watermelon");
 const strawberryQuantityDisplay = document.querySelector("#qty-strawberry");
 const grapesQuantityDisplay = document.querySelector("#qty-grapes");
 
-// *** type your code here ***
+// grand total display variable
 const grandTotalDisplay = document.querySelector("#qty-total");
+
+
+// Using a function to represent all plus buttons and minus buttons ^
+// ???????????????????????
+//??????????????????????????
 
 
 
 // +/- Button Event listeners
-// 3a. Add Event Listeners for Each Fruit's - or + sign
-// 3b. Add Javascript that updates each fruit's count and the total count  // hint: textContent
 
 applesPlusBtn.addEventListener("click", function () {
   apples++;
-  total = apples + bananas + oranges;
+  total = apples + bananas + oranges + strawberry + grapes + watermelon;
   applesQuantityDisplay.textContent = apples;
   grandTotalDisplay.textContent = total;
 });
@@ -133,7 +133,7 @@ applesPlusBtn.addEventListener("click", function () {
 applesMinusBtn.addEventListener("click", () => {
   if (apples > 0) {
     apples--;
-    total = apples + bananas + oranges;
+    total = apples + bananas + oranges + strawberry + grapes + watermelon;
     applesQuantityDisplay.textContent = apples;
     grandTotalDisplay.textContent = total;
   }
@@ -141,7 +141,7 @@ applesMinusBtn.addEventListener("click", () => {
 
 bananasPlusBtn.addEventListener("click", () => {
   bananas++;
-  total = apples + bananas + oranges;
+  total = apples + bananas + oranges + strawberry + grapes + watermelon;
   bananasQuantityDisplay.textContent = bananas;
   grandTotalDisplay.textContent = total;
 });
@@ -149,7 +149,7 @@ bananasPlusBtn.addEventListener("click", () => {
 bananasMinusBtn.addEventListener("click", () => {
   if (bananas > 0) {
     bananas--;
-    total = apples + bananas + oranges + watermelon + grapes + strawberries;
+    total = apples + bananas + oranges + watermelon + grapes + strawberry;
     bananasQuantityDisplay.textContent = bananas;
     grandTotalDisplay.textContent = total;
   }
@@ -157,7 +157,7 @@ bananasMinusBtn.addEventListener("click", () => {
 
 orangesPlusBtn.addEventListener("click", () => {
   oranges++;
-  total = apples + bananas + oranges + watermelon + grapes + strawberries;
+  total = apples + bananas + oranges + watermelon + grapes + strawberry;
   orangesQuantityDisplay.textContent = oranges;
   grandTotalDisplay.textContent = total;
 });
@@ -165,7 +165,7 @@ orangesPlusBtn.addEventListener("click", () => {
 orangesMinusBtn.addEventListener("click", () => {
   if (oranges > 0) {
     oranges--;
-    total = apples + bananas + oranges + watermelon + grapes + strawberries;
+    total = apples + bananas + oranges + watermelon + grapes + strawberry;
     orangesQuantityDisplay.textContent = oranges;
     grandTotalDisplay.textContent = total;
   }
@@ -173,7 +173,7 @@ orangesMinusBtn.addEventListener("click", () => {
 
 watermelonPlusBtn.addEventListener("click", () => {
   watermelon++;
-  total = apples + bananas + oranges + watermelon + grapes + strawberries;
+  total = apples + bananas + oranges + watermelon + grapes + strawberry;
   watermelonQuantityDisplay.textContent = watermelon;
   grandTotalDisplay.textContent = total;
 });
@@ -181,10 +181,42 @@ watermelonPlusBtn.addEventListener("click", () => {
 watermelonMinusBtn.addEventListener("click", () => {
   if (watermelon > 0) {
     watermelon--;
-    total = apples + bananas + oranges + watermelon + grapes + strawberries;
+    total = apples + bananas + oranges + watermelon + grapes + strawberry;
     watermelonQuantityDisplay.textContent = watermelon;
     grandTotalDisplay.textContent = total;
   }
 });
 
-// *** type your code here ***
+
+strawberryPlusBtn.addEventListener("click", () => {
+  strawberry++;
+  total = apples + bananas + oranges + strawberry + grapes + watermelon;
+  strawberryQuantityDisplay.textContent = strawberry;
+  grandTotalDisplay.textContent = total;
+});
+
+strawberryMinusBtn.addEventListener("click", () => {
+  if (strawberry > 0) {
+    strawberry--;
+    total = apples + bananas + oranges + strawberry + grapes + watermelon;
+    strawberryQuantityDisplay.textContent = strawberry;
+    grandTotalDisplay.textContent = total;
+  }
+});
+
+grapesPlusBtn.addEventListener("click", () => {
+  grapes++;
+  total = apples + bananas + oranges + grapes + grapes + strawberry;
+  grapesQuantityDisplay.textContent = grapes;
+  grandTotalDisplay.textContent = total;
+});
+
+grapesMinusBtn.addEventListener("click", () => {
+  if (grapes > 0) {
+    grapes--;
+    total = apples + bananas + oranges + grapes + grapes + strawberry;
+    grapesQuantityDisplay.textContent = grapes;
+    grandTotalDisplay.textContent = total;
+  }
+});
+
